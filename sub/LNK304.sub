@@ -1,0 +1,94 @@
+*=========================================================
+* LNK304 Stable LTspice Model
+* Convergent version for general buck converter simulation
+* Pins:
+* D  = Drain
+* FB = Feedback
+* S  = Source
+*
+* Features:
+* - 66 kHz oscillator
+* - ON/OFF feedback
+* - Behavioral MOSFET
+* - Convergent, no current-limit chatter
+*=========================================================
+
+.subckt LNK304 D FB S
+
+*=========================================================
+* Parameters
+*=========================================================
+.param TPER=15.15u       ; Switching period for 66 kHz
+.param FBTH=1.65         ; Feedback trip threshold
+
+*=========================================================
+* Oscillator
+*=========================================================
+* Generates 50% duty cycle pulse at ~66 kHz
+VCLK CLK 0 PULSE(
++ 0
++ 5
++ 0
++ 100n
++ 100n
++ {TPER/2}
++ {TPER})
+
+*=========================================================
+* Feedback control
+*=========================================================
+* FB comparator (cycle-skipping / ON-OFF regulation)
+BFB ENFB 0 V=
++ 0.5*(1-tanh((V(FB,S)-FBTH)/0.05))
+
+*=========================================================
+* VSENSE for current (dummy node, can be used for measurement)
+*=========================================================
+VSENSE SW S 0
+
+CSW SW S 10p
+
+*=========================================================
+* Current limit (disabled for stability)
+*=========================================================
+BILIM ENILIM 0 V=1
+* Note: original current-limit can be added later with a latched method
+
+*=========================================================
+* Gate drive
+*=========================================================
+* MOSFET is ON if ENFB * ENILIM * oscillator is high
+*BGATE GATE 0 V=
+*+ 5*V(ENFB)*V(ENILIM)*
+*+ if(mod(time,TPER)<TPER/2,1,0)
+
+BGATE GATE 0 V=
++ 5*V(ENFB)*V(ENILIM)*u(V(CLK)-2.5)
+
+
+*=========================================================
+* MOSFET model
+*=========================================================
+SMAIN D SW GATE 0 SWMOD
+
+.model SWMOD SW(
++ Ron=18
++ Roff=1e8
++ Vt=2
++ Vh=0.2)
+
+*=========================================================
+* Optional: internal capacitance / leakage (for convergence)
+*=========================================================
+CDS D S 25p
+RLEAK D S 100Meg
+
+*=========================================================
+* Provide DC paths for internal nodes
+*=========================================================
+RCLK   CLK    0 100Meg
+RFB    ENFB   0 100Meg
+RLIM   ENILIM 0 100Meg
+RGATE  GATE   0 100Meg
+
+.ends LNK304

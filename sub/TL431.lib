@@ -1,0 +1,75 @@
+*****************************************************************************
+* TL431 MACROMODEL ***************3-26-92************************************
+* REV N/A ****************************************************************DBB
+*****************************************************************************
+*              REFERENCE
+*              |  ANODE
+*              |  |  CATHODE
+*              |  |  |
+.SUBCKT TL431_OLD1  2  3  1
+* A K R
+*.SUBCKT TL431  3  1  2
+V1  6  7  DC  1.4V
+I1  2  4  1E-3
+R1  1  2  1.2E6
+R2  4  2  RMOD 2.495E3
+R3  5  7  .2
+D1  3  6  DMOD1
+D2  2  3  DMOD1
+D3  2  7  DMOD2
+E1  5  2  POLY(2)  (4,2)  (1,2)  0  710  -710
+.MODEL RMOD RES (TC1=1.4E-5 TC2=-1E-6)
+.MODEL DMOD1 D (RS=.3)
+.MODEL DMOD2 D (RS=1E-6)
+.ENDS
+
+
+.SUBCKT TL431_OLD2 6 7 11
+.MODEL DCLAMP D (IS=13.5N RS=25M N=1.59 
++ CJO=45P VJ=.75 M=.302 TT=50.4N BV=34V IBV=1MA)
+*V1 1 6 2.495 ; used for fixed reference, replaced with EB1 Limiter
+EB1 1 6 Value = { IF ( V(7,6)> 2.495, 2.495, V(7,6) ) }
+R1 6 2 15.6
+C1 2 6 .5U
+R2 2 3 100
+C2 3 4 .08U
+R3 4 6 10
+G2 6 8 3 6 1.73
+D1 5 8 DCLAMP
+D2 7 8 DCLAMP
+V4 5 6 2
+G1 6 2 1 11 0.11
+.ENDS
+
+
+*LTspice model for TL431 by Fesz
+*
+*Based on the OnSemi spice model
+*https://www.onsemi.com/pub/Collateral/TL431%20SPICE%20MODELS.DOC
+*
+*             K A Ref
+.subckt TL431 6 7 11
+D1 7 8 DClamp
+D2 5 8 Dclamp
+R1 2 6 15.6
+C1 2 6 .5µ
+R2 3 2 100
+C2 3 4 80n
+R3 4 6 10
+V1 5 6 2
+G3 6 2 1 11 0.11
+Q1 7 11 N003 0 2N3904
+R6 N003 6 5k
+V4 1 6 2.495
+D3 6 7 Dclamp
+B1 6 8 I=if(V(3,6)<0,V(3,6)*1.73,0)
+.MODEL DCLAMP D (IS=13.5N RS=25M N=1.59
++ CJO=45P VJ=.75 M=.302 TT=50.4N BV=34V IBV=1MA)
+.model 2N3904 NPN(IS=1E-14 VAF=100
++  Bf=300 IKF=0.4 XTB=1.5 BR=4
++  CJC=4E-12  CJE=8E-12 RB=20 RC=0.1 RE=0.1
++  TR=250E-9  TF=350E-12 ITF=1 VTF=2 XTF=3 Vceo=40 Icrating=200m mfg=NXP)
+.ends
+
+
+

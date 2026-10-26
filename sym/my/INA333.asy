@@ -1,0 +1,99 @@
+Version 4
+SymbolType CELL
+LINE Normal -32 -48 48 0
+LINE Normal -32 48 48 0
+LINE Normal -32 -48 -32 48
+LINE Normal -28 -32 -20 -32
+LINE Normal -28 32 -20 32
+LINE Normal -24 -28 -24 -36
+LINE Normal 0 -48 0 -29
+LINE Normal 0 48 0 29
+LINE Normal -4 -20 4 -20
+LINE Normal 0 -24 0 -16
+LINE Normal 32 48 32 10
+LINE Normal -4 21 4 21
+LINE Normal 31 3 33 3
+LINE Normal 33 3 31 3
+LINE Normal 31 -1 33 -1
+LINE Normal 31 7 31 -1
+LINE Normal 28 -1 30 -1
+LINE Normal 28 7 28 -1
+LINE Normal 30 3 28 3
+LINE Normal -27 -12 -27 -20
+LINE Normal -25 -20 -27 -20
+LINE Normal -24 -19 -25 -20
+LINE Normal -24 -17 -24 -19
+LINE Normal -25 -16 -24 -17
+LINE Normal -27 -16 -25 -16
+LINE Normal -24 -15 -25 -16
+LINE Normal -24 -12 -24 -15
+LINE Normal -23 -13 -23 -19
+LINE Normal -22 -12 -23 -13
+LINE Normal -21 -12 -22 -12
+LINE Normal -20 -13 -21 -12
+LINE Normal -20 -15 -20 -13
+LINE Normal -21 -15 -20 -15
+LINE Normal -22 -20 -23 -19
+LINE Normal -21 -20 -22 -20
+LINE Normal -20 -19 -21 -20
+LINE Normal -17 -16 -19 -16
+LINE Normal -18 -15 -18 -17
+LINE Normal -27 20 -27 12
+LINE Normal -25 12 -27 12
+LINE Normal -24 13 -25 12
+LINE Normal -24 15 -24 13
+LINE Normal -25 16 -24 15
+LINE Normal -27 16 -25 16
+LINE Normal -24 17 -25 16
+LINE Normal -24 20 -24 17
+LINE Normal -23 19 -23 13
+LINE Normal -22 20 -23 19
+LINE Normal -21 20 -22 20
+LINE Normal -20 19 -21 20
+LINE Normal -20 17 -20 19
+LINE Normal -21 17 -20 17
+LINE Normal -22 12 -23 13
+LINE Normal -21 12 -22 12
+LINE Normal -20 13 -21 12
+LINE Normal -17 16 -19 16
+LINE Normal 30 7 28 7
+LINE Normal 27 0 26 -1
+LINE Normal 27 2 27 0
+LINE Normal 26 3 27 2
+LINE Normal 25 3 26 3
+LINE Normal 25 -1 25 3
+LINE Normal 26 -1 25 -1
+LINE Normal 25 7 25 3
+LINE Normal 27 4 26 3
+LINE Normal 27 7 27 4
+WINDOW 0 54 -37 Left 2
+WINDOW 3 56 53 Left 2
+SYMATTR Value INA333
+SYMATTR Prefix X
+SYMATTR SpiceModel INA333.lib
+SYMATTR Value2 INA333
+SYMATTR Description INA333
+PIN -32 -16 NONE 8
+PINATTR PinName RG+
+PINATTR SpiceOrder 1
+PIN -32 -32 NONE 0
+PINATTR PinName VIN+
+PINATTR SpiceOrder 2
+PIN -32 32 NONE 0
+PINATTR PinName VIN-
+PINATTR SpiceOrder 3
+PIN 0 48 NONE 0
+PINATTR PinName V-
+PINATTR SpiceOrder 4
+PIN 32 48 NONE 0
+PINATTR PinName REF
+PINATTR SpiceOrder 5
+PIN 48 0 NONE 0
+PINATTR PinName VOUT
+PINATTR SpiceOrder 6
+PIN 0 -48 NONE 0
+PINATTR PinName V+
+PINATTR SpiceOrder 7
+PIN -32 16 NONE 8
+PINATTR PinName RG-
+PINATTR SpiceOrder 8

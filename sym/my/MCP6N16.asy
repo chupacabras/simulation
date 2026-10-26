@@ -1,0 +1,87 @@
+Version 4
+SymbolType CELL
+LINE Normal -32 -48 48 0
+LINE Normal -32 48 48 0
+LINE Normal -32 -48 -32 48
+LINE Normal -28 -16 -20 -16
+LINE Normal -28 16 -20 16
+LINE Normal -24 20 -24 12
+LINE Normal 0 -48 0 -29
+LINE Normal 0 48 0 29
+LINE Normal -4 -20 4 -20
+LINE Normal 0 -24 0 -16
+LINE Normal 32 48 32 10
+LINE Normal 16 48 16 19
+LINE Normal -4 21 4 21
+LINE Normal 16 -19 16 -48
+LINE Normal 16 -19 16 -19
+LINE Normal 9 -16 11 -16
+LINE Normal 9 -13 9 -16
+LINE Normal 11 -13 9 -13
+LINE Normal 9 -13 11 -13
+LINE Normal 9 -10 9 -13
+LINE Normal 11 -10 9 -10
+LINE Normal 13 -16 13 -10
+LINE Normal 15 -10 13 -16
+LINE Normal 15 -16 15 -10
+LINE Normal 33 7 31 7
+LINE Normal 34 6 33 7
+LINE Normal 34 4 34 6
+LINE Normal 33 3 34 4
+LINE Normal 31 3 33 3
+LINE Normal 33 3 31 3
+LINE Normal 34 2 33 3
+LINE Normal 34 0 34 2
+LINE Normal 33 -1 34 0
+LINE Normal 31 -1 33 -1
+LINE Normal 31 7 31 -1
+LINE Normal 28 -1 30 -1
+LINE Normal 28 7 28 -1
+LINE Normal 30 3 28 3
+LINE Normal 10 9 8 9
+LINE Normal 11 10 10 9
+LINE Normal 11 12 11 10
+LINE Normal 10 13 11 12
+LINE Normal 8 13 10 13
+LINE Normal 10 13 8 13
+LINE Normal 11 14 10 13
+LINE Normal 11 17 11 14
+LINE Normal 8 17 8 9
+LINE Normal 12 17 12 9
+LINE Normal 15 17 12 17
+LINE Normal 15 9 12 9
+LINE Normal 14 13 12 13
+LINE Normal 16 17 16 9
+LINE Normal 19 9 16 9
+LINE Normal 18 13 16 13
+WINDOW 0 54 -37 Left 2
+WINDOW 3 56 53 Left 2
+SYMATTR Value MCP6N16
+SYMATTR Prefix X
+SYMATTR SpiceModel MCP6N16.lib
+SYMATTR Value2 MCP6N16
+SYMATTR Description MCP6N16
+PIN 16 -48 NONE 0
+PINATTR PinName EN
+PINATTR SpiceOrder 1
+PIN 0 -48 NONE 0
+PINATTR PinName VDD
+PINATTR SpiceOrder 2
+PIN 32 48 NONE 0
+PINATTR PinName VFG
+PINATTR SpiceOrder 3
+PIN -32 -16 NONE 0
+PINATTR PinName VIM
+PINATTR SpiceOrder 4
+PIN -32 16 NONE 0
+PINATTR PinName VIP
+PINATTR SpiceOrder 5
+PIN 48 0 NONE 0
+PINATTR PinName VOUT
+PINATTR SpiceOrder 6
+PIN 16 48 NONE 0
+PINATTR PinName VREF
+PINATTR SpiceOrder 7
+PIN 0 48 NONE 0
+PINATTR PinName VSS
+PINATTR SpiceOrder 8

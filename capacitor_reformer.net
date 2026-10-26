@@ -1,0 +1,39 @@
+* E:\dev\ltspice\capacitor_reformer.asc
+R1 V500 V450 {R1}
+R2 V450 V400 {R1}
+R3 V400 V350 {R1}
+C1 N004 Vin1 22µ Rser=0.1
+C2 Vin1 0 22µ Rser=0.1
+D1 Vin2 N004 RFN5TF8S
+D2 0 Vin2 RFN5TF8S
+V1 Vin1 Vin2 SINE(0 338 50) Rser=300
+R4 N004 V500 2k
+D3 Vzener1 V500 1N5378B
+D4 N005 Vzener1 1N5378B
+D5 N006 N005 1N5378B
+D6 N007 N006 1N5378B
+D7 0 N007 1N5378B
+R5 V350 V300 {R1}
+R6 V300 V250 {R1}
+R7 V250 V200 {R1}
+R8 V200 V150 {R1}
+R9 V150 V100 {R1}
+R10 V100 V63 1.6k
+R11 V63 N008 600
+R12 N008 0 2.2k
+R13 N008 0 238k
+XU1 N002 N001 neonbulb Vstrike=100 Vhold=50 Zon=2K Ihold=200u Tau=100u
+R14 N003 N002 250k
+C3 N002 N001 220n
+R15 N003 N001 75k
+R16 N001 0 10Meg
+.model D D
+.lib C:\Users\Chupacabras\Documents\LTspiceXVII\lib\cmp\standard.dio
+.tran 1
+.param R1 2.2k
+.meas TRAN P_zener AVG (V(Vzener1,v500)*I(D3)) FROM 0.1s TO 0.9s
+.meas TRAN P_Rdivider AVG (V(v500,v450)*I(R1)) FROM 0.1s TO 0.9s
+.meas TRAN P_in AVG (V(Vin2,Vin1)*I(V1)) FROM 0.1s TO 0.9s
+.lib neonbulb.sub
+.backanno
+.end

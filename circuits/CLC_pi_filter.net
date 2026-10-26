@@ -1,0 +1,16 @@
+* F:\svn_zeus_repos_duro\dev\ltspice\CLC_pi_filter.asc
+C1 in 0 10µ V=10 Irms=7.86 Rser=0.00457925 Lser=0
+L1 in out 10µ Ipk=1.44 Rser=0.1 Rpar=0 Cpar=0
+C2 out 0 {C} V=10 Irms=13.8 Rser=0.00468332 Lser=0
+V1 in 0 SINE(0 1) AC 1 Rser=0.1
+C3 out 0 1µ V=10 Irms=5.18 Rser=0.0171188 Lser=0 mfg="KEMET" pn="C0603C105K8PAC" type="X5R"
+C4 out 0 0.1µ V=10 Irms=728m Rser=0.14361 Lser=0 mfg="KEMET" pn="C0603C104K8RAC" type="X7R"
+C5 in 0 1µ V=10 Irms=5.18 Rser=0.0171188 Lser=0 mfg="KEMET" pn="C0603C105K8PAC" type="X5R"
+C6 in 0 0.1µ V=10 Irms=728m Rser=0.14361 Lser=0 mfg="KEMET" pn="C0603C104K8RAC" type="X7R"
+XU1 out 0 out2 LM7805
+C7 out2 0 120µ V=63 Irms=750m Rser=0.12 Lser=0 mfg="Nichicon" pn="UPL1J121MRH6" type="Al electrolytic"
+.ac oct 100 1 100meg
+.step param C list 10u 20u 40u 100u 1000u
+.lib regulators.lib
+.backanno
+.end

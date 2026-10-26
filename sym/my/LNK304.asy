@@ -1,0 +1,22 @@
+Version 4
+SymbolType CELL
+LINE Normal -48 -48 -48 48
+LINE Normal -48 -48 48 -48
+LINE Normal 48 -48 48 48
+LINE Normal -48 48 48 48
+TEXT -38 -40 Left 0 LNK304
+WINDOW 0 13 -55 Left 0
+SYMATTR Prefix X
+SYMATTR SpiceModel LNK304.sub
+SYMATTR Description LinkSwitch-TN LNK304 Behavioral Model
+SYMATTR Value LNK304
+SYMATTR Value2 LNK304
+PIN -48 16 LEFT 8
+PINATTR PinName D
+PINATTR SpiceOrder 1
+PIN 48 -16 RIGHT 8
+PINATTR PinName FB
+PINATTR SpiceOrder 2
+PIN 48 16 RIGHT 8
+PINATTR PinName S
+PINATTR SpiceOrder 3

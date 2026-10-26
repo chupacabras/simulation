@@ -1,0 +1,19 @@
+Version 4
+SymbolType CELL
+RECTANGLE Normal -80 -32 80 64
+WINDOW 0 -67 -41 Left 0
+WINDOW 3 45 -41 Left 0
+SYMATTR Value LM317
+SYMATTR Prefix X
+SYMATTR Description Voltage regulator LM317 (ADJ)
+SYMATTR SpiceModel lm317.lib
+SYMATTR Value2 LM317
+PIN -80 0 LEFT 8
+PINATTR PinName IN
+PINATTR SpiceOrder 1
+PIN 0 64 BOTTOM 8
+PINATTR PinName ADJ
+PINATTR SpiceOrder 2
+PIN 80 0 RIGHT 8
+PINATTR PinName OUT
+PINATTR SpiceOrder 3

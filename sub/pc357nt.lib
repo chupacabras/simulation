@@ -1,0 +1,19 @@
+* Sharp Optocoupler PC357NT
+* File pc357nt.lib
+.subckt pc357nt A K E C
+D1 A N001 LED
+Q1 C 5 E 0 NPN1 1
+R1 5 E 10G
+C1 A K 20p
+V1 N001 K 0
+R2 N002 0 1
+C2 N002 0 200n
+B1 0 N002 I=TABLE(I(V1), 0,0,10m,10m,15m, 14m, 20m,17m,40m,25m,80m,35m,160m,50m)
+G1 E 5 N002 0 0.035
+C3 C 5 10p
+C4 A C 0.3p
+C5 K E 0.3p
+C6 5 E 10p
+.model LED D(Is=1f Rs=4 N=1.5 Eg=1.7 CJO=30p TT=100n)
+.model NPN1 NPN(Is=1p BF=200 VAF=80 IKF=0.025 ISE=1e-9 NE=2 CJC=20p CJE=50p TF=5e-8 Rb=100 Rc=20 Re=5)
+.ends pc357nt
